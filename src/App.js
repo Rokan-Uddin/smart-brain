@@ -84,7 +84,7 @@ loadUser=(data)=>{
           body: JSON.stringify({
           id:this.state.user.id,
       })
-      })
+      }).catch(err => console.log(err))
         .then(response => response.json())
         .then(count=> {
         this.setState(Object.assign(this.state.user, {entris:count}))
