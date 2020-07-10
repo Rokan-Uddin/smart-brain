@@ -24,10 +24,7 @@ const particlesparam = {
 const app = new Clarifai.App({
  apiKey: '28f3e57dca9945e9a95bd52c9b1407f2',
 });
-  class App extends React.Component {  
-  constructor() {
-    super();
-    this.state ={
+const initialState = {
        input :'',
       imageUrl: '',
       box:{},
@@ -40,6 +37,10 @@ const app = new Clarifai.App({
             entris:0,
       }
     };
+  class App extends React.Component {  
+  constructor() {
+    super();
+    this.state =initialState;
   };
 loadUser=(data)=>{
   this.setState({
@@ -96,7 +97,7 @@ loadUser=(data)=>{
   }
   onRouteChange =(route) => {
     if(route ==='home') { this.setState({isSigned:true}); }
-    else if(route ==='signout')  { this.setState({isSigned:false}); }
+    else if(route ==='signout')  { this.setState(initialState); }
     this.setState({route:route});
 
     
